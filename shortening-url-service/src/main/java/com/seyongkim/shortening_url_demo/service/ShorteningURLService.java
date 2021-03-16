@@ -20,12 +20,12 @@ public class ShorteningURLService {
     /**
      * 기존 URL을 기반으로 단축 URL을 생성하는 메소드
      * 만약 기존 URL이 이미 존재한다면, 등록된 단축 Url을 리턴한다
-     * @param requestDto originalUrl을 담은 Dto 객체
+     * @param originalUrl originalUrl을 담은 Dto 객체
      * @return 기존 URL과 단축 URL이 담긴 UrlDto.Response 객체
      */
     @Transactional
-    public UrlDto.Response create(UrlDto.Request requestDto) {
-        String originalUrl = requestDto.getOriginalUrl();
+    public UrlDto.Response create(String originalUrl) {
+//        String originalUrl = requestDto.getOriginalUrl();
 
         Url url = urlRepository.findByOriginalUrl(originalUrl);
 

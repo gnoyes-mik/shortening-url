@@ -7,22 +7,16 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
 public class ShorteningURLController {
 
     private final ShorteningURLService shorteningURLService;
-
-    @PostMapping(value = "/url")
-    public ResponseEntity<UrlDto.Response> createShorteningURL(@RequestBody @Valid UrlDto.Request requestDto) {
-        UrlDto.Response response = shorteningURLService.create(requestDto);
-
-        return ResponseEntity.ok(response);
-    }
 
     @GetMapping(value = "/{shortenedUrl}")
     public ResponseEntity<HttpStatus> getOriginalUrlAndRedirect(@PathVariable String shortenedUrl) throws NotFoundException {

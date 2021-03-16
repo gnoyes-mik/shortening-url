@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Shortening Url Service Demo </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+</head>
+<body>
+<h1>Enter the original URL</h1>
+<form action="/" method="post">
+    <label> ex) http://www.ex.com</label>
+    <p>
+        Original URL: <input type="text" name="url"/>
+    </p>
+    <p>
+        <input type="submit" value="Create"/>
+    </p>
+    <p th:text="${shortenedUrl}">
+    </p>
+</form>
+</body>
+</html>
