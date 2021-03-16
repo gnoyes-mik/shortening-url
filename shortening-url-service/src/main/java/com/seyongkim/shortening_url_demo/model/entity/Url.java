@@ -5,7 +5,10 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
-import javax.persistence.*;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 @Getter
@@ -27,14 +30,15 @@ public class Url {
     public Url(String originalUrl, String shortenedUrl) {
         this.originalUrl = originalUrl;
         this.shortenedUrl = shortenedUrl;
+        this.count = 0L;
     }
 
-    @PrePersist
-    private void prePersist() {
-        this.count = this.count == null ? 0 : this.count;
-    }
+//    @PrePersist
+//    private void prePersist() {
+//        this.count = this.count == null ? 0 : this.count;
+//    }
 
     public void plusCount() {
-        this.count += 1L;
+        this.count = this.count + 1L;
     }
 }

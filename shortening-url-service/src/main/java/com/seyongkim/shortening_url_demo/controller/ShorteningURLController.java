@@ -17,23 +17,34 @@ public class ShorteningURLController {
 
     private final ShorteningURLService shorteningURLService;
 
-    @PostMapping("/url")
+    @PostMapping(value = "/url")
     public ResponseEntity<UrlDto.Response> createShorteningURL(@RequestBody @Valid UrlDto.Request requestDto) {
         UrlDto.Response response = shorteningURLService.create(requestDto);
 
         return ResponseEntity.ok(response);
     }
 
-    @GetMapping("/{shortenedUrl}")
+    @GetMapping(value = "/{shortenedUrl}")
     public ResponseEntity<HttpStatus> getOriginalUrlAndRedirect(@PathVariable String shortenedUrl) throws NotFoundException {
-        UrlDto.Info info = shorteningURLService.count(shortenedUrl);
+        UrlDto.Info response = shorteningURLService.count(shortenedUrl);
 
         HttpHeaders headers = new HttpHeaders();
-        headers.set("Location", info.getOriginalUrl());
-        return new ResponseEntity<>(headers, HttpStatus.MOVED_PERMANENTLY);
+        headers.set("Location", response.getOriginalUrl());
+        return new ResponseEntity<>(headers, HttpStatus.FOUND);
     }
 
-    // GET (/{shortenedUrl}/count)
-    // 어떤거 기준으로 조회할지 shortenedUrl or originalUrl or 아니면 둘다
+    @GetMapping(value = "/url/count", params = {"shortenedUrl"})
+    public ResponseEntity<UrlDto.Info> getNumberOfUrlRequestByShortenedUrl(@RequestParam String shortenedUrl) throws NotFoundException {
+        UrlDto.Info response = shorteningURLService.getNumberOfUrlRequestByShortenedUrl(shortenedUrl);
+
+        return ResponseEntity.ok(response);
+    }
+
+    @GetMapping(value = "/url/count", params = {"originalUrl"})
+    public ResponseEntity<UrlDto.Info> getNumberOfUrlRequestByOriginalUrl(@RequestParam String originalUrl) throws NotFoundException {
+        UrlDto.Info response = shorteningURLService.getNumberOfUrlRequestByOriginalUrl(originalUrl);
+
+        return ResponseEntity.ok(response);
+    }
 
 }

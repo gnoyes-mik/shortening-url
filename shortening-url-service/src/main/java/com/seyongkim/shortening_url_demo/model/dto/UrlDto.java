@@ -14,7 +14,7 @@ public class UrlDto {
     @NoArgsConstructor
     public static class Request {
         @NotBlank
-        String originUrl;
+        String originalUrl;
     }
 
     @Getter
