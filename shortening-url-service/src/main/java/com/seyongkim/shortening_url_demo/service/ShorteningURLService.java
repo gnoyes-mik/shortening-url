@@ -3,7 +3,7 @@ package com.seyongkim.shortening_url_demo.service;
 import com.seyongkim.shortening_url_demo.model.dto.UrlDto;
 import com.seyongkim.shortening_url_demo.model.entity.Url;
 import com.seyongkim.shortening_url_demo.repository.UrlRepository;
-import com.seyongkim.shortening_url_demo.util.Base52;
+import com.seyongkim.shortening_url_demo.utils.Base52;
 import javassist.NotFoundException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

@@ -1,4 +1,4 @@
-package com.seyongkim.shortening_url_demo.util;
+package com.seyongkim.shortening_url_demo.utils;
 
 public class Base52 {
     private final static String[] words
