@@ -44,7 +44,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(ConstraintViolationException.class)
     public ResponseEntity<ErrorResponse> handleConstraintViolationException(ConstraintViolationException e) {
         log.error("handleConstraintViolationException", e);
-        final ErrorResponse response = ErrorResponse.of(ErrorCode.INVALID_INPUT_VALUE);
+        final ErrorResponse response = ErrorResponse.of(ErrorCode.CONSTRAINT_VIOLATION);
 
         return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
     }
