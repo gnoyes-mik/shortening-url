@@ -33,11 +33,6 @@ public class Url {
         this.count = 0L;
     }
 
-//    @PrePersist
-//    private void prePersist() {
-//        this.count = this.count == null ? 0 : this.count;
-//    }
-
     public void plusCount() {
         this.count = this.count + 1L;
     }
