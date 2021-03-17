@@ -2,7 +2,6 @@ package com.seyongkim.shortening_url_demo.service;
 
 import com.seyongkim.shortening_url_demo.model.dto.UrlDto;
 import javassist.NotFoundException;
-import org.junit.Assert;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -34,7 +33,7 @@ class ShorteningURLServiceTest {
         String expected = "http://localhost:8888/A";
 
         // 동일한 URL이 존재한다면 기존에 등록된 단축 URL 반환
-        Assert.assertEquals(expected, response.getShortenedUrl());
+        Assertions.assertEquals(expected, response.getShortenedUrl());
     }
 
     @Test
