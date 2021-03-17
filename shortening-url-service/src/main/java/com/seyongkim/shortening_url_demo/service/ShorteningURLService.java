@@ -25,8 +25,6 @@ public class ShorteningURLService {
      */
     @Transactional
     public UrlDto.Response create(String originalUrl) {
-//        String originalUrl = requestDto.getOriginalUrl();
-
         Url url = urlRepository.findByOriginalUrl(originalUrl);
 
         String shortenedUrl;
