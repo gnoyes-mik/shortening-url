@@ -19,7 +19,7 @@ public class ShorteningUrlViewController {
     private final ShorteningURLService shorteningURLService;
 
     @RequestMapping("/")
-    public String greetingSubmit(Model model) {
+    public String viewInputFormPage() {
         return "input";
     }
 
