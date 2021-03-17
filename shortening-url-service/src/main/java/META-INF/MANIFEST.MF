@@ -1,0 +1,4 @@
+Manifest-Version: 1.0
+Main-Class: com.seyongkim.shortening_url_demo.ShorteningUrlDemoApplicati
+ on
+
