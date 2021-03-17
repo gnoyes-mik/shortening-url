@@ -11,6 +11,6 @@ public interface UrlRepository extends JpaRepository<Url, Long> {
 
     Url findByShortenedUrl(String shortenedUrl);
 
-    @Query("SELECT coalesce(max(url.id), -1) FROM Url url")
+    @Query("SELECT coalesce(max(url.id), 0) FROM Url url")
     long findMaxId();
 }
