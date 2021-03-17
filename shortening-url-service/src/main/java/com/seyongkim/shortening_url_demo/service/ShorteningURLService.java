@@ -15,7 +15,7 @@ public class ShorteningURLService {
 
     private final UrlRepository urlRepository;
 
-    private final String apiURL = "http://localhost/";
+    private final String apiURL = "http://localhost:8888/";
 
     /**
      * 기존 URL을 기반으로 단축 URL을 생성하는 메소드
