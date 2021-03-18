@@ -6,8 +6,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import javax.validation.constraints.NotBlank;
@@ -18,12 +18,12 @@ import javax.validation.constraints.NotBlank;
 public class ShorteningUrlViewController {
     private final ShorteningURLService shorteningURLService;
 
-    @RequestMapping("/")
+    @GetMapping("/")
     public String viewInputFormPage() {
         return "input";
     }
 
-    @RequestMapping(value = "/", method = RequestMethod.POST)
+    @PostMapping(value = "/")
     public String createShorteningURL(@RequestParam("url") @NotBlank String url, Model model) {
         UrlDto.Response response = shorteningURLService.create(url);
         model.addAttribute("shortenedUrl", response.getShortenedUrl());
