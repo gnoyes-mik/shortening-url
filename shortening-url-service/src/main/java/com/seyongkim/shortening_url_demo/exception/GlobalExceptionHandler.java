@@ -55,7 +55,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(NotFoundException.class)
     public ResponseEntity<ErrorResponse> handleNotFoundException(NotFoundException e) {
         log.error("handleNotFoundException", e);
-        final ErrorResponse response = ErrorResponse.of(ErrorCode.INVALID_INPUT_VALUE);
+        final ErrorResponse response = ErrorResponse.of(ErrorCode.NOT_FOUND);
 
         return new ResponseEntity<>(response, HttpStatus.NOT_FOUND);
     }
