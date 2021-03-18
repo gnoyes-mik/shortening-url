@@ -37,12 +37,12 @@ class ShorteningURLControllerTest extends AbstractControllerTest {
                 .andExpect(status().isNotFound());
 
         mockMvc.perform(get("/url/count").param("shortenedUrl", ""))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isBadRequest());
 
         mockMvc.perform(get("/url/count").param("originalUrl", wrongOriginalUrl))
                 .andExpect(status().isNotFound());
 
         mockMvc.perform(get("/url/count").param("originalUrl", ""))
-                .andExpect(status().isNotFound());
+                .andExpect(status().isBadRequest());
     }
 }

@@ -30,7 +30,7 @@ class ShorteningURLServiceTest {
     void create() {
         UrlDto.Response response = shorteningURLService.create("http://exURL1.com");
 
-        String expected = "http://localhost:8888/B";
+        String expected = "http://localhost:8888/C";
 
         // 동일한 URL이 존재한다면 기존에 등록된 단축 URL 반환
         Assertions.assertEquals(expected, response.getShortenedUrl());
